@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Uppercase App</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 40px;
+            width: 420px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #f5c542;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 10px 0;
+            color: #e6e6e6;
+        }
+
+        b {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #00eaff;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    {% if data %}
+        <h1>Hello {{ data.upper }} 👋</h1>
+        <p><b>Original Name:</b> <span class="highlight">{{ data.original }}</span></p>
+        <p><b>Reversed:</b> <span class="highlight">{{ data.reverse }}</span></p>
+        <p><b>Character Count:</b> <span class="highlight">{{ data.length }}</span></p>
+        <p><b>Current Time:</b> {{ data.time }}</p>
+    {% else %}
+        <h1>Welcome 🚀</h1>
+        <p>Pass your name in the URL like:</p>
+        <p class="highlight"><b>?name=surjeet</b></p>
+    {% endif %}
+</div>
+
+</body>
+</html>
